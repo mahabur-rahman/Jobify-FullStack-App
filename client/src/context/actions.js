@@ -38,5 +38,8 @@ export const CLEAR_VALUES = "CLEAR_VALUES";
 export const GET_JOB_BEGIN = "GET_JOB_BEGIN";
 export const GET_JOB_SUCCESS = "GET_JOB_SUCCESS";
 
+// edit job
+export const SET_EDIT_JOB = "SET_EDIT_JOB";
+
 // LOGOUT USER
 export const LOGOUT_USER = "LOGOUT_USER";

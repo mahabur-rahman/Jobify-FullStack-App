@@ -23,6 +23,7 @@ import {
   CREATE_JOB_BEGIN,
   GET_JOB_BEGIN,
   GET_JOB_SUCCESS,
+  SET_EDIT_JOB,
 } from "./actions";
 import axios from "axios";
 
@@ -287,12 +288,16 @@ const AppContextProvider = ({ children }) => {
 
   // Edit job
   const setEditJob = (id) => {
-    console.log(`edit job : ${id}`);
+    dispatch({ type: SET_EDIT_JOB, payload: { id } });
+  };
+
+  const editJob = () => {
+    console.log("edit job");
   };
 
   // delete job
   const deleteJob = (id) => {
-    console.log(`delete job : ${id}`);
+    // console.log(`delete job : ${id}`);
   };
 
   return (
@@ -309,6 +314,7 @@ const AppContextProvider = ({ children }) => {
         getAllJobs,
         setEditJob,
         deleteJob,
+        editJob,
       }}
     >
       {children}
