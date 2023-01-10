@@ -24,6 +24,10 @@ import {
   GET_JOB_BEGIN,
   GET_JOB_SUCCESS,
   SET_EDIT_JOB,
+  DELETE_JOB_BEGIN,
+  EDIT_JOB_BEGIN,
+  EDIT_JOB_SUCCESS,
+  EDIT_JOB_ERROR,
 } from "./actions";
 import axios from "axios";
 
@@ -291,13 +295,49 @@ const AppContextProvider = ({ children }) => {
     dispatch({ type: SET_EDIT_JOB, payload: { id } });
   };
 
-  const editJob = () => {
-    console.log("edit job");
+  const editJob = async () => {
+    // console.log("edit job");
+
+    dispatch({ type: EDIT_JOB_BEGIN });
+
+    try {
+      const { position, company, jobLocation, jobType, status } = state;
+
+      await authFetch.patch(`/jobs/${state.editJobId}`, {
+        company,
+        position,
+        jobLocation,
+        jobType,
+        status,
+      });
+
+      dispatch({ type: EDIT_JOB_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (err) {
+      console.log(err.response);
+      if (err.response.status === 401) return;
+      dispatch({
+        type: EDIT_JOB_ERROR,
+        payload: { msg: err.response.data.msg },
+      });
+    }
+
+    clearAlert();
   };
 
   // delete job
-  const deleteJob = (id) => {
+  const deleteJob = async (jobId) => {
     // console.log(`delete job : ${id}`);
+    dispatch({ type: DELETE_JOB_BEGIN });
+
+    try {
+      const res = await authFetch.delete(`/jobs/${jobId}`);
+      getAllJobs();
+
+      alert(res.data.msg);
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
   return (

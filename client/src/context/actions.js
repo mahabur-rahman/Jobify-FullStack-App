@@ -38,8 +38,16 @@ export const CLEAR_VALUES = "CLEAR_VALUES";
 export const GET_JOB_BEGIN = "GET_JOB_BEGIN";
 export const GET_JOB_SUCCESS = "GET_JOB_SUCCESS";
 
-// edit job
+// edit job 👍
+
+export const EDIT_JOB_BEGIN = "EDIT_JOB_BEGIN";
+export const EDIT_JOB_SUCCESS = "EDIT_JOB_SUCCESS";
+export const EDIT_JOB_ERROR = "EDIT_JOB_ERROR";
+
 export const SET_EDIT_JOB = "SET_EDIT_JOB";
+
+// delete job
+export const DELETE_JOB_BEGIN = "DELETE_JOB_BEGIN";
 
 // LOGOUT USER
 export const LOGOUT_USER = "LOGOUT_USER";
