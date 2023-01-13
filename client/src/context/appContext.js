@@ -61,6 +61,9 @@ const initialState = {
   totalJobs: 0,
   numOfPages: 1,
   page: 1,
+  // stats
+  stats: {},
+  monthlyApplications: [],
 };
 
 const AppContext = createContext();

@@ -54,8 +54,9 @@
 }
 
 .sidebar_left {
-    width: 20%;
+    width: 100%;
     background-color: #ddd;
+    padding: 5rem;
 }
 
 .main_page {
@@ -95,4 +96,31 @@
 
 .interview {
     color: goldenrod;
+}
+
+
+/* stats dynamic color */
+
+.color1 {
+    color: red !important;
+}
+
+.bcg1 {
+    font-size: 1.5rem;
+}
+
+.color2 {
+    color: goldenrod;
+}
+
+.bcg2 {
+    font-size: 1.5rem;
+}
+
+.color3 {
+    color: rgb(77, 42, 42);
+}
+
+.bcg3 {
+    font-size: 1.5rem;
 }
