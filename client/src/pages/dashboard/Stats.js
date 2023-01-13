@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { StatsContainer } from "../../components";
+import { useAppContext } from "../../context/appContext";
 
 const Stats = () => {
-  return <h1>Stats</h1>;
+  const { showStats } = useAppContext();
+
+  useEffect(() => {
+    showStats();
+  }, []);
+  return (
+    <>
+      <StatsContainer />
+    </>
+  );
 };
 
 export default Stats;

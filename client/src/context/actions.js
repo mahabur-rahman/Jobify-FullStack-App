@@ -49,5 +49,9 @@ export const SET_EDIT_JOB = "SET_EDIT_JOB";
 // delete job
 export const DELETE_JOB_BEGIN = "DELETE_JOB_BEGIN";
 
+// show stats 👍
+export const SHOW_STATS_BEGIN = "SHOW_STATS_BEGIN";
+export const SHOW_STATS_SUCCESS = "SHOW_STATS_SUCCESS";
+
 // LOGOUT USER
 export const LOGOUT_USER = "LOGOUT_USER";
