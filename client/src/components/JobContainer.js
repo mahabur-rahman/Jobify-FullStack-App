@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import Loading from "./Loading";
 import SingleJob from "./SingleJob";
+import PageBtnContainer from "./PageBtnContainer";
 
 const JobContainer = () => {
   const {
@@ -14,6 +15,7 @@ const JobContainer = () => {
     searchStatus,
     searchType,
     sort,
+    numOfPages,
   } = useAppContext();
 
   useEffect(() => {
@@ -42,6 +44,7 @@ const JobContainer = () => {
         </div>
 
         {/* pagination button */}
+        {numOfPages > 1 && <PageBtnContainer />}
       </div>
     </>
   );

@@ -31,6 +31,7 @@ import {
   SHOW_STATS_BEGIN,
   SHOW_STATS_SUCCESS,
   CLEAR_FILTERS,
+  CHANGE_PAGE,
 } from "./actions";
 import axios from "axios";
 
@@ -276,8 +277,8 @@ const AppContextProvider = ({ children }) => {
 
   // get all jobs 👍
   const getAllJobs = async () => {
-    const { search, searchStatus, searchType, sort } = state;
-    let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
+    const { page, search, searchStatus, searchType, sort } = state;
+    let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
 
     if (search) {
       url = url + `&search=${search}`;
@@ -382,7 +383,10 @@ const AppContextProvider = ({ children }) => {
     dispatch({ type: CLEAR_FILTERS });
   };
 
-  // search
+  // pagination of change page
+  const changePage = (page) => {
+    dispatch({ type: CHANGE_PAGE, payload: { page } });
+  };
 
   return (
     <AppContext.Provider
@@ -401,6 +405,7 @@ const AppContextProvider = ({ children }) => {
         editJob,
         showStats,
         clearFilters,
+        changePage,
       }}
     >
       {children}

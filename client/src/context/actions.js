@@ -56,5 +56,8 @@ export const SHOW_STATS_SUCCESS = "SHOW_STATS_SUCCESS";
 // clear filters
 export const CLEAR_FILTERS = "CLEAR_FILTERS";
 
+// pagination
+export const CHANGE_PAGE = "CHANGE_PAGE";
+
 // LOGOUT USER
 export const LOGOUT_USER = "LOGOUT_USER";

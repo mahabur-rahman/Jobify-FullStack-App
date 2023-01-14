@@ -124,3 +124,8 @@
 .bcg3 {
     font-size: 1.5rem;
 }
+
+.active_page {
+    background-color: aquamarine;
+    color: blueviolet;
+}
