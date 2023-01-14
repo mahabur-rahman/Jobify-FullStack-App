@@ -53,5 +53,8 @@ export const DELETE_JOB_BEGIN = "DELETE_JOB_BEGIN";
 export const SHOW_STATS_BEGIN = "SHOW_STATS_BEGIN";
 export const SHOW_STATS_SUCCESS = "SHOW_STATS_SUCCESS";
 
+// clear filters
+export const CLEAR_FILTERS = "CLEAR_FILTERS";
+
 // LOGOUT USER
 export const LOGOUT_USER = "LOGOUT_USER";

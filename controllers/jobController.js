@@ -59,11 +59,11 @@ const getAllJobs = async (req, res) => {
   }
 
   if (sort === "a-z") {
-    result = result.sort("position");
+    result = result.sort("position"); // asc
   }
 
   if (sort === "z-a") {
-    result = result.sort("-position");
+    result = result.sort("-position"); // desc
   }
 
   const jobs = await result;

@@ -30,6 +30,7 @@ import {
   EDIT_JOB_ERROR,
   SHOW_STATS_BEGIN,
   SHOW_STATS_SUCCESS,
+  CLEAR_FILTERS,
 } from "./actions";
 import axios from "axios";
 
@@ -64,6 +65,11 @@ const initialState = {
   // stats
   stats: {},
   monthlyApplications: [],
+  search: "",
+  searchStatus: "all",
+  searchType: "all",
+  sort: "latest",
+  sortOptions: ["latest", "oldest", "a-z", "z-a"],
 };
 
 const AppContext = createContext();
@@ -270,7 +276,12 @@ const AppContextProvider = ({ children }) => {
 
   // get all jobs 👍
   const getAllJobs = async () => {
-    const url = "/jobs";
+    const { search, searchStatus, searchType, sort } = state;
+    let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
+
+    if (search) {
+      url = url + `&search=${search}`;
+    }
 
     dispatch({
       type: GET_JOB_BEGIN,
@@ -366,6 +377,13 @@ const AppContextProvider = ({ children }) => {
     clearAlert();
   };
 
+  // clear  filters
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
+
+  // search
+
   return (
     <AppContext.Provider
       value={{
@@ -382,6 +400,7 @@ const AppContextProvider = ({ children }) => {
         deleteJob,
         editJob,
         showStats,
+        clearFilters,
       }}
     >
       {children}
